@@ -6,19 +6,23 @@ Her konu kendi klasöründe: her klasörde `ders.md` (konu anlatımı) ve `prati
 ## Temeller
 
 - [x] 01 — Konsola Yazdırma (`console.log`)
-- [ ] **02 — Değişkenler (bilgiyi saklamak)** — şu an buradayız
-- [ ] 03 — Veri Tipleri (metin, sayı, doğru/yanlış)
-- [ ] 04 — Metinler / Stringler (birleştirme, şablonlar)
-- [ ] 05 — Sayılar ve Matematik
-- [ ] 06 — Karşılaştırma ve Boolean
-- [ ] 07 — Koşullar (`if` / `else`)
-- [ ] 08 — Diziler / Arrays
+- [x] 02 — Değişkenler (bilgiyi saklamak)
+- [x] 03 — Veri Tipleri (metin, sayı, doğru/yanlış)
+- [x] 04 — Metinler / Stringler (birleştirme, şablonlar)
+- [x] 05 — Sayılar ve Matematik
+- [x] 06 — Karşılaştırma ve Boolean
+- [x] 07 — Koşullar (`if` / `else`)
+- [ ] **08 — Diziler / Arrays** — şu an buradayız
 - [ ] 09 — Döngüler / Loops
 - [ ] 10 — Fonksiyonlar
 - [ ] 11 — Objeler / Objects
 - [ ] 12 — Dizi Metotları (`map`, `filter`, `find`)
 
 Sonraki konular (async, modüller, DOM) bunların üstüne gelecek.
+
+## Ekler / Referans
+
+- [Parantez türleri: `( )` `[ ]` `{ }`](ek-parantezler/ders.md) — neden üç çeşit var, kim karar vermiş
 
 ## Çalışma düzeni
 

@@ -113,6 +113,69 @@ console.log(kullanicilar[1].yas);   // 22
 `kullanicilar[0]` ilk objeyi verir, `.ad` o objenin adını verir. Index (dizi) ve nokta
 (obje) yan yana kullanılır.
 
+## İç içe veri ve iç içe döngü
+
+Gerçek veri genelde katman katmandır: bir **obje**nin içinde bir **array**, onun içinde
+**objeler**, onların içinde yine **array**. Örnek:
+
+```js
+const sirket = {
+  ad: "İncir Studio",
+  calisanlar: [
+    { ad: "Bahadır", roller: ["admin", "developer"] },
+    { ad: "Ada", roller: ["designer"] },
+    { ad: "Can", roller: ["editor", "tester", "developer"] },
+  ],
+};
+```
+
+Katmanlar: `sirket` (obje) → `calisanlar` (array) → her eleman (obje) → `roller` (array).
+
+Bunu gezmek için döngüleri iç içe koyarsın. **Altın kural: her katmanda tipe göre döngü
+seç** — dizi ise `for...of`, obje ise `for...in`.
+
+### `for...of` içinde `for...of` (dizi içinde dizi)
+
+```js
+for (const calisan of sirket.calisanlar) {   // dış: çalışan dizisi -> of
+  console.log(calisan.ad);
+  for (const rol of calisan.roller) {         // iç: roller dizisi -> of
+    console.log(`  - ${rol}`);
+  }
+}
+```
+
+Dış döngü her çalışanı gezer; her çalışanın içinde, iç döngü onun rollerini gezer.
+
+### `for...of` içinde `for...in` (dizi içinde obje)
+
+Senin sorduğun "for-of içinde for-in" tam olarak budur ve geçerlidir:
+
+```js
+for (const calisan of sirket.calisanlar) {   // dış: dizi -> of
+  for (const anahtar in calisan) {            // iç: obje -> in
+    console.log(`${anahtar}: ${calisan[anahtar]}`);
+  }
+}
+```
+
+Dış döngü diziyi (çalışanları) gezer; iç döngü her çalışan **objesinin anahtarlarını**
+(`ad`, `roller`) gezer. Yani istediğin kadar iç içe koyabilirsin; sadece her seviyede doğru
+döngüyü seç.
+
+### Daha temiz: `Object.entries` + `for...of`
+
+`for...in` yerine `Object.entries` ile anahtar ve değeri aynı anda alabilirsin (bunu sen
+zaten denemiştin):
+
+```js
+for (const calisan of sirket.calisanlar) {
+  for (const [anahtar, deger] of Object.entries(calisan)) {
+    console.log(`${anahtar} = ${deger}`);
+  }
+}
+```
+
 ## Görev
 
 Adımları sırayla uygula:
